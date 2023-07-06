@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html>
+    
 <head>
     <title>Trang web Upload Video</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 <body>
-<form action="" method="post" enctype="multipart/form-data">
-        <input type="file" name="video" accept=".mp4">
-        <input type="submit" value="Upload">
-</form>
-<video src="{{url_for('static', filename=video_name)}}" type="video/mp4" controls></video>
-                <script src="" async defer></script>
+    <div class="container">
+        <div class="wrapper">
+            <div class="section video">
+                <video class="player" controls>
+                    <source src="{{url_for('static', filename=video_name)}}" type="video/mp4">
+                </video>
+            </div>
+            <div class="section result">
+            </div>
+        </div>
+        <div class="wrapperr">
+            <div class="section upload">
+                <div class="input">
+                    <input  type="file" name="video" accept=".mp4">
+                </div>
+                <div class="input">
+                    <select >
+                        <option value="add">Thêm người dùng</option>
+                        <option value="reg">nhận dạng</option>
+                    </select>
+                </div>
+                <div class="input">
+                    <input type="submit" value="Upload">
+                </div>
+            </div>
+            <div class="section download">
+                <div class="output">
+                    <a href="{{ url_for('download_file') }}">Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script src="" async defer></script>
+
 </body>
 </html>
