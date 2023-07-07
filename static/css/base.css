@@ -1,6 +1,12 @@
+*{
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 body {
   font-family: 'Rubik', sans-serif;
-  min-height: 100vh;
+  max-height: 100vh;
 }
 
 a {
@@ -28,10 +34,11 @@ input::file-selector-button {
 .container {
   display: flex;
   justify-content: stretch;
+  padding: 10px;
 }
 
 .section {
-  margin: 10px 20px;
+
 }
 
 .button {
@@ -44,4 +51,70 @@ input::file-selector-button {
   &:hover {
       cursor: pointer;
   }
+}
+.up-down{
+  margin-top: 10px;
+}
+table{
+  width: 100%;
+}
+.result .video-result{
+  width: 60%;
+  position: relative;
+}
+.result .text-result{
+  width: 38%;
+}
+tbody tr th,
+tbody tr td
+ {
+  width: 20%;
+  /* border-right: 2px solid #ccc; */
+  /* border-top: 2px solid #ccc; */
+ 
+}
+tbody tr th,
+tbody tr td{
+  height: 30px;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th{
+  text-align: center;
+}
+ td {
+  text-align: left;
+  padding-left: 2px;
+}
+.p5{
+  padding: 5px 0px;
+}
+.cp{
+  cursor: pointer;
+}
+.form-group{
+  margin-bottom: 10px;
+  padding-right: 10px;
+}
+label {
+  display: inline-block;
+  width: 100px;
+  text-align: end;
+}
+/* tbody tr th:first-child,
+tbody tr td:first-child{
+  border-left: 2px solid #ccc;
+}
+tbody tr th{
+  border-top: 2px solid #ccc;
+}
+tbody tr th{
+ 
+} */
+.up-down{
+  position: absolute;
+  top: 500px;
+  width: 80%;
 }

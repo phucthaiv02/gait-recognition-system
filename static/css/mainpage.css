@@ -1,12 +1,11 @@
 /* Main page */
 .main {
-        width: 100%;
-        margin: 10px;
+        width: 80%;
+        height: 400px;
         flex-direction: column;
 }
 
 /* result section */
-
 .video-result {
         height: 50vh;
         width: 700px;
@@ -24,6 +23,7 @@
 /* upload section */
 .upload {
 }
+
 .output {
         padding: 10px 20px;
 }

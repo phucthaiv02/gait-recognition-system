@@ -10,10 +10,16 @@
     <script src="https://kit.fontawesome.com/f34adb6f35.js" crossorigin="anonymous"></script>
     
     <title>Gait regconition system</title>
+    <style>
+        .main{
+            width: 80%;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="navbar">
+    <h1 style="text-align: center; padding-bottom: 40px; padding-top: 20px; background-color: antiquewhite;">Gait Regconition System</h1>
+    <div class="container" style="height: 600px; margin: 0;">
+        <div class="navbar" style="border-right: 1px solid #ccc; padding-top: 10px;">
             <ul>
                 <li class="nav">
                     <a href="{{url_for('home')}}">
@@ -29,33 +35,86 @@
                 </li>
             </ul>
         </div>
-        {% if push %}
-        <h1>Đào được rồi</h1>
-        {% endif %}
-        <div class="main">
-            <div class="input-form flex">
-                <form action="/upload" method="POST" enctype="multipart/form-data">
-                    <label for="name">Tên:</label>
-                    <input type="text" id="name" name="name" required>
-                    
+        
+        <div class="main" style="padding-top: 10px;">
+            <h2 style="padding: 20px 20px;">Thêm dữ liệu người dùng</h2>
+            <div class="input-form flex" style="margin-top: 10px;">
+                <form action="/upload" method="POST" enctype="multipart/form-data" style="margin-left: 150px;">
+                    <div style="display: flex;">
+                        <div class="form-group">
+                            <label for="name">Tên:</label>
+                            <input class="p5" type="text" id="name" name="name" required>
+                        </div>
                         
-                    <label for="age">Tuổi:</label>
-                    <input type="number" id="age" name="age" value="None">
-                        
-                    <label for="gender">Giới tính:</label>
-                    <select id="gender" name="gender">
-                        <option value="male">Nam</option>
-                        <option value="female">Nữ</option>
-                        <option value="other" selected>Khác</option>
-                    </select>
-                        
-                    <label for="video">Video:</label>    
-                    <input type="file" id="video" name="video" accept="video/*" required>
-                    
-                    <button class="button" type="submit">Submit</button>
+                        <div class="form-group">
+                            <label for="age">Tuổi:</label>
+                            <input class="p5" type="number" id="age" name="age" value="None">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Giới tính:</label>
+                            <select style="padding: 5px 10px;" id="gender" name="gender">
+                                <option  value="male">Nam</option>
+                                <option  value="female">Nữ</option>
+                                <option  value="other" selected>Khác</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="display: flex;">
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input class="p5" type="text" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tel">SĐT:</label>
+                            <input class="p5" type="tel" id="tel" name="tel" value="">
+                        </div>
+                    </div>
+                    <div style="display: flex;">
+                        <div class="form-group">
+                            <label for="occupation">Nghề nghiệp:</label>
+                            <input class="p5" type="text" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Địa chỉ:</label>
+                            <input class="p5" type="tel" id="tel" name="tel" value="">
+                        </div>
+                    </div>
+                    <div style="display: flex;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="video">Video:</label>    
+                            <input type="file" id="video" name="video" accept="video/*" required>
+
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="view">View:</label>
+                            <select style="padding: 5px 10px;"  id="view" name="gender">
+                                <option value="front">Trước</option>
+                                <option value="back">Sau</option>
+                                <option value="side">Hai bên</option>
+                                <option value="undefined" selected>Không xác định</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex" style="justify-content: center; margin: 30px 300px 0px 0px;">
+                        <button class="button" type="submit">Submit</button>
+                    </div>
                 </form>
             </div>
-            
+            <div class="section flex video-result" style="padding: 20px 20px; flex-direction: column; ">
+                <h2>Thông báo</h2>
+                {% if push %}
+                <div class="flex">
+                    <h3 style="color: red; padding: 16px;">* Đã thêm thông tin</h3>
+                    <video class="player" controls autoplay>
+                        <source src="{{url_for('static', filename=video_name)}}" type="video/mp4">
+                    </video>
+                </div>
+                {% else %}
+                <div>
+                    <img class="player" src="{{url_for('static', filename=image_name)}}" alt="GIF Image" style="border-radius: 10px;">
+                </div>
+                {% endif %}
+            </div>
         </div>
     </div>
 </body>

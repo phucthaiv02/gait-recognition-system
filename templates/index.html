@@ -10,8 +10,10 @@
     <script src="https://kit.fontawesome.com/f34adb6f35.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="navbar">
+    <h1 style="text-align: center; padding-bottom: 40px; padding-top: 20px; background-color: antiquewhite;">Gait Regconition System</h1>
+
+    <div class="container" style="height: 500px; margin-top: 10px;">
+        <div class="navbar" style="padding-top: 0; border-right: 1px solid #ccc; "> 
             <ul>
                 <li class="nav">
                     <a href="{{url_for('home')}}">
@@ -29,33 +31,35 @@
         </div>
           
         <div class="main flex">
-            <div class="result flex">
+            <div class="result flex" >
                 <div class="section video-result">
                     {% if video_name %}
-                    <video class="player" width="800" height="600" controls>
+                    <video class="player" controls autoplay>
                         <source src="{{url_for('static', filename=video_name)}}" type="video/mp4">
                     </video>
                     {% else %}
-                        <img class="player" src="{{url_for('static', filename=image_name)}}" alt="GIF Image">
+                        <img class="player" src="{{url_for('static', filename=image_name)}}" alt="GIF Image" style="border-radius: 10px;">
                     {% endif %}
                 </div>
                 <div class="section text-result">
-                    <h1 style="text-align: center;">Kết quả</h1>
+                    <h1 style="text-align: center; margin-bottom: 10px;">Kết quả</h1>
                     <table>
-                        <tr>
-                            <th>Tên</th>
-                            <th>Tuổi</th>
-                            <th>Giới tính</th>
-                            <th>Nghề nghiệp</th>
-                        </tr>
+                            <tr>
+                                <th>Id</th>
+                                <th>Tên</th>
+                                <th>Tuổi</th>
+                                <th>Giới tính</th>
+                                <th>Nghề nghiệp</th>
+                            </tr>
                         {% if objects %}
                         {% for obj in objects %}
-                        <tr>
-                          <td>{{ obj['name'] }}</td>
-                          <td>{{ obj['age'] }}</td>
-                          <td>{{ obj['gender'] }}</td>
-                          <td>{{ obj['occupation'] }}</td>
-                        </tr>
+                            <tr>
+                            <td>{{ obj['id']}}</td>
+                              <td>{{ obj['name']}}</td>
+                              <td>{{ obj['age'] }}</td>
+                              <td>{{ obj['gender'] }}</td>
+                              <td>{{ obj['occupation'] }}</td>
+                            </tr>
                         {% endfor %}
                         {% endif %}
                     </table>

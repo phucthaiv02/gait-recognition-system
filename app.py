@@ -11,6 +11,12 @@ def home():
     return render_template('index.html', image_name='images/bg.png')
 
 
+@app.route('/', methods=['POST'])
+def update_class():
+    class_name = request.form['class_name']
+    return class_name
+
+
 @app.route('/predict', methods=['POST', 'GET'])
 def predict():
     def process():
@@ -46,10 +52,12 @@ def predict():
 @app.route('/upload', methods=['POST', 'GET'])
 def add_data():
     if 'video' in request.files and 'name' in request.form:
+        video = request.files['video']
+        video_name = 'videos/' + video.filename
         push = True
-        return render_template('upload.html', push=push)
+        return render_template('upload.html', push=push, video_name=video_name)
     else:
-        return render_template('upload.html')
+        return render_template('upload.html', image_name="images/bg.png")
 
 
 @app.route('/download')
