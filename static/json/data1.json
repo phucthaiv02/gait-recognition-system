@@ -1,7 +1,18 @@
-{
-    "name": "John Doe",
-    "age": 25,
-    "gender": "Male",
-    "occupation": "Engineer"
-}
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "age": 25,
+        "gender": "Male",
+        "occupation": "Engineer"
+    },
+
+    {
+        "id": 2,
+        "name": "Cull",
+        "age": 25,
+        "gender": "Male",
+        "occupation": "Engineer"
+    }
+]
 

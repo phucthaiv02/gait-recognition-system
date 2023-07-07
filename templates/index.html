@@ -6,33 +6,41 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/mainpage.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+
+    <script src="https://kit.fontawesome.com/f34adb6f35.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
         <div class="navbar">
             <ul>
-                <li>
-                    <a href="{{url_for('home')}}">Xác minh danh tính</a>
+                <li class="nav">
+                    <a href="{{url_for('home')}}">
+                        <i class="nav-icon fa-solid fa-user-check"></i>
+                        Xác minh danh tính
+                    </a>
                 </li>
-                <li>
-                    <a href="{{url_for('add_data')}}">Thêm dữ liệu người dùng</a>
+                <li class="nav">
+                    <a href="{{url_for('add_data')}}">
+                        <i class="nav-icon fa-solid fa-person-running"></i>
+                        Thêm dữ liệu người dùng
+                    </a>
                 </li>
             </ul>
         </div>
           
-        <div class="main">
-            <div class="wrapper">
-                <div class="section video">
+        <div class="main flex">
+            <div class="result flex">
+                <div class="section video-result">
                     {% if video_name %}
-                    <video class="player" controls>
+                    <video class="player" width="800" height="600" controls>
                         <source src="{{url_for('static', filename=video_name)}}" type="video/mp4">
                     </video>
                     {% else %}
                         <img class="player" src="{{url_for('static', filename=image_name)}}" alt="GIF Image">
                     {% endif %}
                 </div>
-                <div class="section result">
-                    <h1>Kết quả</h1>
+                <div class="section text-result">
+                    <h1 style="text-align: center;">Kết quả</h1>
                     <table>
                         <tr>
                             <th>Tên</th>
@@ -53,18 +61,20 @@
                     </table>
                 </div>
             </div>
-            <div class="wrapperr">
-                <div class="section upload">
-                <div>
+            <div class="up-down flex">
+                <div class="section upload flex">
                     <form action="/predict" method="POST" enctype="multipart/form-data">
-                        <input type="file" name="video" id="video" accept=".mp4">
-                        <button id="predict">Predict</button>
+                        <input type="file" name="video" id="video" accept=".mp4" required>
+                        <button class="button" id="predict">Predict</button>
                     </form>
                 </div>
-                </div>
-                <div class="section download">
+                <div class="section download flex">
+                    <span style="padding: 10px 20px; font-weight: bold;">Lưu kết quả :</span>
                     <div class="output">
-                        <a href="{{ url_for('download_file') }}">Download</a>
+                        <a class="button" href="{{ url_for('download_file') }}">Video</a>
+                    </div>
+                    <div class="output">
+                        <a class="button" href="{{ url_for('download_file') }}">File .txt</a>
                     </div>
                 </div>
             </div>

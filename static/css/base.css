@@ -1,11 +1,47 @@
 body {
+  font-family: 'Rubik', sans-serif;
+  min-height: 100vh;
 }
 
 a {
-        text-decoration: none;
+  text-decoration: none;
+}
+
+input, select {
+  border: 2px solid #850E35;
+  border-radius: 10px;
+}
+input::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #084cdf;
+  padding: 10px 20px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
 }
 
 .container {
-        display: flex;
-        justify-content: stretch;
+  display: flex;
+  justify-content: stretch;
+}
+
+.section {
+  margin: 10px 20px;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #FC6E51;
+  color: white;
+  font-size: 16px;
+  &:hover {
+      cursor: pointer;
+  }
 }

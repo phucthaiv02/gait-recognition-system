@@ -1,4 +1,4 @@
-input:required:invalid,
-select:required:invalid {
-  border: 1px solid red;
+.input-form {
+  display: flex;
+  flex-direction: column;
 }

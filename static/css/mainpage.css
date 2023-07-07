@@ -1,44 +1,33 @@
 /* Main page */
-.wrapper {
-        width: auto;
-        display: flex;
-        padding: 20px;
-        justify-content: stretch;
-}
-.section {
+.main {
+        width: 100%;
+        margin: 10px;
+        flex-direction: column;
 }
 
-/* video section */
-.video {
-        height: 80vh;
-        background-color: aliceblue;
+/* result section */
+
+.video-result {
+        height: 50vh;
+        width: 700px;
 }
       
 .player {
         width: 100%;
         height: 100%;
 }
-.input {
-        display: flex;
-        justify-content: space-around;
-}
-/* result section */
-.result {
-        width: 35%;
+
+.text-result, .download {
+        width: 450px;
 }
 
 /* upload section */
 .upload {
-        width: 65%;
-        display: flex;
-        justify-content: space-around;
 }
-.input {
-        box-sizing: border-box;
+.output {
+        padding: 10px 20px;
 }
 
 /* download section  */
 .download {
-        display: flex;
-        justify-content: space-around;
 }
