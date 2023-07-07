@@ -1,0 +1,44 @@
+/* Main page */
+.wrapper {
+        width: auto;
+        display: flex;
+        padding: 20px;
+        justify-content: stretch;
+}
+.section {
+}
+
+/* video section */
+.video {
+        height: 80vh;
+        background-color: aliceblue;
+}
+      
+.player {
+        width: 100%;
+        height: 100%;
+}
+.input {
+        display: flex;
+        justify-content: space-around;
+}
+/* result section */
+.result {
+        width: 35%;
+}
+
+/* upload section */
+.upload {
+        width: 65%;
+        display: flex;
+        justify-content: space-around;
+}
+.input {
+        box-sizing: border-box;
+}
+
+/* download section  */
+.download {
+        display: flex;
+        justify-content: space-around;
+}

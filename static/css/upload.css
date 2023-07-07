@@ -1,0 +1,4 @@
+input:required:invalid,
+select:required:invalid {
+  border: 1px solid red;
+}

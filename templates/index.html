@@ -2,38 +2,70 @@
 <html>
     
 <head>
-    <title>Trang web Upload Video</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <title>Gait Regconition System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mainpage.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
 </head>
 <body>
     <div class="container">
-        <div class="wrapper">
-            <div class="section video">
-                <video class="player" controls>
-                    <source src="{{url_for('static', filename=video_name)}}" type="video/mp4">
-                </video>
-            </div>
-            <div class="section result">
-            </div>
+        <div class="navbar">
+            <ul>
+                <li>
+                    <a href="{{url_for('home')}}">Xác minh danh tính</a>
+                </li>
+                <li>
+                    <a href="{{url_for('add_data')}}">Thêm dữ liệu người dùng</a>
+                </li>
+            </ul>
         </div>
-        <div class="wrapperr">
-            <div class="section upload">
-                <div class="input">
-                    <input  type="file" name="video" accept=".mp4">
+          
+        <div class="main">
+            <div class="wrapper">
+                <div class="section video">
+                    {% if video_name %}
+                    <video class="player" controls>
+                        <source src="{{url_for('static', filename=video_name)}}" type="video/mp4">
+                    </video>
+                    {% else %}
+                        <img class="player" src="{{url_for('static', filename=image_name)}}" alt="GIF Image">
+                    {% endif %}
                 </div>
-                <div class="input">
-                    <select >
-                        <option value="add">Thêm người dùng</option>
-                        <option value="reg">nhận dạng</option>
-                    </select>
-                </div>
-                <div class="input">
-                    <input type="submit" value="Upload">
+                <div class="section result">
+                    <h1>Kết quả</h1>
+                    <table>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Tuổi</th>
+                            <th>Giới tính</th>
+                            <th>Nghề nghiệp</th>
+                        </tr>
+                        {% if objects %}
+                        {% for obj in objects %}
+                        <tr>
+                          <td>{{ obj['name'] }}</td>
+                          <td>{{ obj['age'] }}</td>
+                          <td>{{ obj['gender'] }}</td>
+                          <td>{{ obj['occupation'] }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% endif %}
+                    </table>
                 </div>
             </div>
-            <div class="section download">
-                <div class="output">
-                    <a href="{{ url_for('download_file') }}">Download</a>
+            <div class="wrapperr">
+                <div class="section upload">
+                <div>
+                    <form action="/predict" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="video" id="video" accept=".mp4">
+                        <button id="predict">Predict</button>
+                    </form>
+                </div>
+                </div>
+                <div class="section download">
+                    <div class="output">
+                        <a href="{{ url_for('download_file') }}">Download</a>
+                    </div>
                 </div>
             </div>
         </div>
